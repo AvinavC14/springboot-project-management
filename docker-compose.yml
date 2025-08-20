@@ -1,0 +1,17 @@
+version: "3.8"  
+
+services:
+  postgres:
+    container_name: postgres_db           # Name of the container 
+    image: postgres:latest                # Use latest official PostgreSQL image
+    environment:
+      POSTGRES_USER: myuser               # Database username
+      POSTGRES_PASSWORD: mypassword       # Database password
+      POSTGRES_DB: mydatabase             # Initial database name
+    ports:
+      - "5432:5432"                        # Host:Container port mapping
+    volumes:
+      - postgres_data:/var/lib/postgresql/data # Persistent storage for DB data
+
+volumes:
+  postgres_data:                           # Named volume definition
