@@ -1,9 +1,12 @@
-package com.springboot.store;
+package com.springboot.store.services;
 
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
+
+import com.springboot.store.Project;
+import com.springboot.store.repositories.ProjectRepository;
 
 @Service
 public class ProjectService {
