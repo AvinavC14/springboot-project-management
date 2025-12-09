@@ -1,9 +1,12 @@
-package com.springboot.store;
+package com.springboot.store.services;
 
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
+
+import com.springboot.store.SoftwareEngineer;
+import com.springboot.store.repositories.SoftwareEngineerRepository;
 
 @Service
 public class SoftwareEngineerService {
@@ -30,6 +33,7 @@ public class SoftwareEngineerService {
         SoftwareEngineer existingEngineer = existingEngineerId.get();
         existingEngineer.setName(updatedEngineer.getName());
         existingEngineer.setTechStack(updatedEngineer.getTechStack());
+        repo.save(existingEngineer);
       }else{
         throw new RuntimeException("No engineer with ID: "+id+ "exists");
       }
