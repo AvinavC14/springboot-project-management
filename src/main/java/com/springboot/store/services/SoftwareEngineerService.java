@@ -3,6 +3,8 @@ package com.springboot.store.services;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.springboot.store.SoftwareEngineer;
@@ -39,5 +41,8 @@ public class SoftwareEngineerService {
       }
   
     }
+    public Page<SoftwareEngineer> getAllEngineersPaged(Pageable pageable) {
+    return repo.findAll(pageable);
+}
   
 }
