@@ -339,8 +339,4 @@ src/
 
 <div align="center">
 
-**⭐ Star this repo if you find it helpful!**
-
-Made with ❤️ and Spring Boot
-
 </div>
