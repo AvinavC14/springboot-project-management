@@ -18,6 +18,36 @@ A secure REST API for managing projects and software engineers with **JWT authen
 - ⚡ **RESTful API** - Clean, intuitive endpoint structure
 - 🛡️ **Security Best Practices** - CSRF protection, stateless sessions, secure headers
 
+## 📈 Performance Benchmarks
+
+> Tested using **k6** load testing tool with **50 concurrent users** over **30 seconds** on a dataset of **10,000 engineer records**.
+
+The API originally returned every record in the database on every request. At 10,000 records, this made the endpoint slow and data-heavy under real load. Server-side pagination was added to fix this — clients now request only the records they need.
+
+| Metric | Before Pagination | After Pagination | Improvement |
+|--------|------------------|------------------|-------------|
+| Avg Response Time | 1.35s | 649ms | ✅ 52% faster |
+| p95 Response Time | 2.17s | 1.31s | ✅ 40% faster |
+| Data Transferred | 300 MB | 1.6 MB | ✅ 99.5% less data |
+| Requests Handled | 856 | 1,342 | ✅ 57% more throughput |
+
+> **p95 response time** = 95% of all requests completed within this time. A lower number means a more consistent experience for users.
+
+### How to reproduce these results
+
+1. Start the app — the DataSeeder automatically inserts 10,000 engineer records on first run
+2. Install [k6](https://k6.io/docs/getting-started/installation/)
+3. Run the before benchmark (unpaginated):
+```bash
+k6 run benchmark-before.js
+```
+4. Run the after benchmark (paginated):
+```bash
+k6 run benchmark-after.js
+```
+
+Both scripts are included in the root of this repository.
+
 ## 🛠️ Tech Stack
 
 | Technology | Version | Purpose |
@@ -308,9 +338,5 @@ src/
 ---
 
 <div align="center">
-
-**⭐ Star this repo if you find it helpful!**
-
-Made with ❤️ and Spring Boot
 
 </div>
