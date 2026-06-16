@@ -1,4 +1,4 @@
-package com.springboot.store;
+package com.springboot.store.entity;
 
 public enum Role {
     ADMIN,

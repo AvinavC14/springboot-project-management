@@ -13,11 +13,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-
-import com.springboot.store.Project;
-import com.springboot.store.SoftwareEngineer;
+import com.springboot.store.dto.CreateEngineerRequest;
+import com.springboot.store.entity.Project;
+import com.springboot.store.entity.SoftwareEngineer;
 import com.springboot.store.services.ProjectService;
 import com.springboot.store.services.SoftwareEngineerService;
+
+import jakarta.validation.Valid;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -36,10 +39,10 @@ public class SoftwareEngineerController {
         return service.getAllEngineers();
     }
     @PostMapping("/AddEngineer")
-    public void add(@RequestParam String n,@RequestParam String ts,@RequestParam Integer projectId){
-        Project project=projectService.getProjectById(projectId);
-          service.saveEngineer(new SoftwareEngineer(n,ts,project));
-    }
+public void add(@Valid @RequestBody CreateEngineerRequest request) {
+    Project project = projectService.getProjectById(request.projectId());
+    service.saveEngineer(new SoftwareEngineer(request.name(), request.techStack(), project));
+}
     @DeleteMapping("/DeleteEngineer/{id}")
     public void delete(@PathVariable Integer id){
         if(!service.existsById(id)){

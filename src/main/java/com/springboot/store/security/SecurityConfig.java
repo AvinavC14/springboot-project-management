@@ -1,4 +1,4 @@
-package com.springboot.store;
+package com.springboot.store.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

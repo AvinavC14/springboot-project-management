@@ -5,7 +5,7 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
-import com.springboot.store.Project;
+import com.springboot.store.entity.Project;
 import com.springboot.store.repositories.ProjectRepository;
 
 @Service
@@ -18,9 +18,15 @@ public class ProjectService {
     public void add(String name){
       repo.save(new Project(name));
     }
-    public void delete(Integer id){
-        repo.deleteById(id);
+    public void delete(Integer id) {
+    Project project = getProjectById(id);
+    if (!project.getEngineers().isEmpty()) {
+        throw new RuntimeException(
+            "Cannot delete project with " + project.getEngineers().size() + " assigned engineers"
+        );
     }
+    repo.deleteById(id);
+}
     public Project getProjectById(Integer id){
          return  repo.findById(id)
          .orElseThrow( ()->new RuntimeException("No project with ID: " + id + " exists"));

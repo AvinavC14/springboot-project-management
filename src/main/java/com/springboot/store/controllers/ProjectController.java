@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.springboot.store.Project;
+import com.springboot.store.entity.Project;
 import com.springboot.store.services.ProjectService;
 
 @RestController
@@ -30,12 +30,10 @@ public class ProjectController {
     public List<Project> getAll(){
         return service.getAllProjects();
     }
-    @DeleteMapping("/delete/{Id}")
-    public void delete(@PathVariable Integer Id){
-        if(service.existsById(Id)){
-       service.delete(Id);
-        }else{throw new RuntimeException("No project with Id :"+Id+"exists");}
-       }
+   @DeleteMapping("/delete/{Id}")
+public void delete(@PathVariable Integer Id) {
+    service.delete(Id);
+}
    @PutMapping("/update/{id}")
    public void update(@PathVariable Integer id,@RequestParam String n){
         if(!service.existsById(id)){

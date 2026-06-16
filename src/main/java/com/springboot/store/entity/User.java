@@ -1,4 +1,4 @@
-package com.springboot.store;
+package com.springboot.store.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.EnumType;

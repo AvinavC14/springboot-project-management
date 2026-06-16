@@ -1,4 +1,4 @@
-package com.springboot.store;
+package com.springboot.store.security;
 
 import com.springboot.store.services.JwtService;
 import jakarta.servlet.FilterChain;

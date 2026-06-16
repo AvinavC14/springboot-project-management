@@ -2,10 +2,10 @@ package com.springboot.store.controllers;
 
 import com.springboot.store.dto.LoginRequest;
 import com.springboot.store.dto.RegisterRequest;
+import com.springboot.store.entity.User;
 import com.springboot.store.services.JwtService;
 import com.springboot.store.services.UserService;
 import com.springboot.store.dto.AuthResponse;
-import com.springboot.store.User;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

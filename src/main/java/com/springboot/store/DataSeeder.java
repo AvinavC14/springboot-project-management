@@ -2,6 +2,9 @@ package com.springboot.store;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+
+import com.springboot.store.entity.Project;
+import com.springboot.store.entity.SoftwareEngineer;
 import com.springboot.store.repositories.ProjectRepository;
 import com.springboot.store.repositories.SoftwareEngineerRepository;
 import java.util.ArrayList;

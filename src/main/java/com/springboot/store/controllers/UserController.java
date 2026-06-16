@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.springboot.store.User;
+import com.springboot.store.entity.User;
 import com.springboot.store.services.UserService;
 
 @RestController

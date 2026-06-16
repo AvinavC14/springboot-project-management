@@ -2,9 +2,9 @@ package com.springboot.store.services;
 
 import com.springboot.store.dto.LoginRequest;
 import com.springboot.store.dto.RegisterRequest;
+import com.springboot.store.entity.Role;
+import com.springboot.store.entity.User;
 import com.springboot.store.repositories.UserRepository;
-import com.springboot.store.Role;
-import com.springboot.store.User;
 
 import java.util.List;
 

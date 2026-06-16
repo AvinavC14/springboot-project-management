@@ -1,4 +1,4 @@
-package com.springboot.store;
+package com.springboot.store.entity;
 
 import java.util.ArrayList;
 import java.util.List;
